@@ -166,7 +166,7 @@ if (!$laporanResult) {
 
     <!-- Laporan Pelanggaran -->
     <div class="table-wrapper">
-        <h4> Catatan Pelanggaran 🚨</h4>
+        <h4> Catatan Konseling 🚨</h4>
         <div class="table-responsive">
             <table id="tabelLaporan" class="table table-bordered table-striped table-hover">
                 <thead>
@@ -174,7 +174,7 @@ if (!$laporanResult) {
                         <th>No</th>
                         <th>No HP</th>
                         <th>Nama Siswa</th>
-                        <th>Pelanggaran</th>
+                        <th>Catatan</th>
                         <th>Tanggal</th>
                     </tr>
                 </thead>
@@ -184,7 +184,7 @@ if (!$laporanResult) {
                         <td><?= $no++; ?></td>
                         <td><?= htmlspecialchars($lapor['no_hp']); ?></td>
                         <td><?= htmlspecialchars($lapor['nama_siswa']); ?></td>
-                        <td><?= htmlspecialchars($lapor['pelanggaran']); ?></td>
+                        <td><?= htmlspecialchars($lapor['catatan']); ?></td>
                         <td><?= htmlspecialchars($lapor['waktu']); ?></td>
                     </tr>
                     <?php endwhile; ?>

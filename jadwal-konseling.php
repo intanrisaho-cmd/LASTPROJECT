@@ -114,7 +114,7 @@ if (isset($_SESSION['hapus_success'])) {
   <a href="jadwal-konseling.php"><i class="fas fa-calendar-alt"></i> Jadwal Konseling</a>
    <a href="catatan-admin.php"><i class="fas fa-book"></i> Catatan Guru BK</a>
   <a href="laporan.php"><i class="fas fa-chart-line"></i> Laporan</a>
-  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Pelanggaran</a>
+  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Konseling</a>
   <a href="admin_feedback.php"><i class="fas fa-comment-dots"></i> Feedback</a>
   <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
@@ -138,7 +138,7 @@ if (isset($_SESSION['hapus_success'])) {
                     <th>Tanggal</th>
                     <th>Ruangan</th>
                     <th>Topik</th>
-                    <th>Deskripsi</th>
+                    <!-- <th>Deskripsi</th> -->
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -163,7 +163,7 @@ if (isset($_SESSION['hapus_success'])) {
                         echo "<td class='text-center'>" . date('d-m-Y', strtotime($row['tanggal'])) . "</td>";
                         echo "<td>" . htmlspecialchars($row['ruangan']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['topik']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['deskripsi']) . "</td>";
+                        // echo "<td>" . htmlspecialchars($row['deskripsi']) . "</td>";
                         echo "<td class='text-center'>
                                 <a href='edit-jadwal.php?id={$row['id']}' class='btn btn-warning btn-sm me-1'>
                                     <i class='fas fa-edit'></i>

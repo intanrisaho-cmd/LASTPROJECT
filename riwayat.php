@@ -103,7 +103,7 @@ $result = $query->get_result();
 <!-- Sidebar -->
 <div class="sidebar">
   <h4>📘 Wali Kelas</h4>
-  <a href="wali_dashboard.php">📝 Catatan Pelanggaran</a>
+  <a href="wali_dashboard.php">📝 Catatan Konseling</a>
   <a href="riwayat.php">📂 Riwayat</a>
 </div>
 
@@ -136,7 +136,7 @@ $result = $query->get_result();
                             <tr>
                                 <th>No</th>
                                 <th>Nama Siswa</th>
-                                <th>Pelanggaran</th>
+                                <th>Catatan</th>
                                 <th>Waktu</th>
                                 <th>No HP Ortu</th>
                             </tr>
@@ -146,7 +146,7 @@ $result = $query->get_result();
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td><?= htmlspecialchars($row['nama_siswa']) ?></td>
-                                <td><?= htmlspecialchars($row['pelanggaran']) ?></td>
+                                <td><?= htmlspecialchars($row['catatan']) ?></td>
                                 <td><?= htmlspecialchars($row['waktu']) ?></td>
                                 <td><?= htmlspecialchars($row['no_hp']) ?></td>
                             </tr>

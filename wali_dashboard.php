@@ -27,26 +27,26 @@ $siswa_list = $result->fetch_all(MYSQLI_ASSOC);
 // Proses form wali
 if ($role === 'wali' && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['kirim'])) {
     $nama        = htmlspecialchars($_POST['nama']);
-    $pelanggaran = htmlspecialchars($_POST['pelanggaran']);
+    $catatan = htmlspecialchars($_POST['catatan']);
     $no_hp       = htmlspecialchars($_POST['no_hp']);
     $waktu       = date("Y-m-d H:i:s");
 
     // Simpan ke tabel catatan_pelanggaran
     $stmt = $conn->prepare("
         INSERT INTO catatan_pelanggaran 
-        (nama_siswa, pelanggaran, no_hp, waktu, dikirim_oleh) 
+        (nama_siswa, catatan, no_hp, waktu, dikirim_oleh) 
         VALUES (?, ?, ?, ?, ?)
     ");
-    $stmt->bind_param("sssss", $nama, $pelanggaran, $no_hp, $waktu, $wali);
+    $stmt->bind_param("sssss", $nama, $catatan, $no_hp, $waktu, $wali);
     $stmt->execute();
 
     // Simpan ke notifikasi_admin
     $stmtNotif = $conn->prepare("
         INSERT INTO notifikasi_admin 
-        (nama_siswa, pelanggaran, waktu, dikirim_oleh) 
+        (nama_siswa, catatan, waktu, dikirim_oleh) 
         VALUES (?, ?, ?, ?)
     ");
-    $stmtNotif->bind_param("ssss", $nama, $pelanggaran, $waktu, $wali);
+    $stmtNotif->bind_param("ssss", $nama, $catatan, $waktu, $wali);
     $stmtNotif->execute();
 
     // Link WA
@@ -93,7 +93,7 @@ if ($role === 'wali' && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['k
 <!-- Sidebar -->
 <div class="sidebar">
   <h4>📘 Wali Kelas</h4>
-  <a href="#">📝 Catatan Pelanggaran</a>
+  <a href="#">📝 Catatan Konseling</a>
   <a href="riwayat.php">📂 Riwayat</a>
 </div>
 
@@ -120,7 +120,7 @@ if ($role === 'wali' && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['k
 
   <!-- Form Catatan -->
   <div class="container-box">
-    <h4 class="mb-4">📝 Form Catatan Pelanggaran Siswa</h4>
+    <h4 class="mb-4">📝 Form Catatan Konseling Siswa</h4>
 
     <div class="mb-3">
       <label for="cariSiswa" class="form-label">🔍 Cari Nama Siswa</label>
@@ -145,7 +145,7 @@ if ($role === 'wali' && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['k
         <input type="text" name="nama" class="form-control" required>
       </div>
       <div class="mb-3">
-        <label class="form-label">Jenis Pelanggaran</label>
+        <label class="form-label">Topik Konseling </label>
         <textarea name="pelanggaran" class="form-control" rows="3" required></textarea>
       </div>
       <div class="mb-3">

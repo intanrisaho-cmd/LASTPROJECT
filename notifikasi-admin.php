@@ -52,7 +52,7 @@ if (!$dataCatatan) {
   <a href="jadwal-konseling.php"><i class="fas fa-calendar-alt"></i> Jadwal Konseling</a>
   <a href="catatan-admin.php"><i class="fas fa-book"></i> Catatan Guru BK</a>
   <a href="laporan.php"><i class="fas fa-chart-line"></i> Laporan</a>
-  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Pelanggaran</a>
+  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Konseling</a>
   <a href="admin_feedback.php"><i class="fas fa-comment-dots"></i> Feedback</a>
   <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
@@ -60,7 +60,7 @@ if (!$dataCatatan) {
 <div class="main-content">
   <div class="card shadow border-0">
     <div class="card-header">
-      <h4 class="mb-0"><i class="bi bi-exclamation-triangle-fill me-2"></i> Laporan Pelanggaran Siswa</h4>
+      <h4 class="mb-0"><i class="bi bi-exclamation-triangle-fill me-2"></i> Laporan Konseling Siswa</h4>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -79,12 +79,12 @@ if (!$dataCatatan) {
               <tr>
                 <td></td> <!-- Kolom No akan di-generate oleh DataTables -->
                 <td><?= htmlspecialchars($row['nama_siswa']) ?></td>
-                <td><?= htmlspecialchars($row['pelanggaran']) ?></td>
+                <td><?= htmlspecialchars($row['catatan']) ?></td>
                 <td><?= date('d M Y, H:i', strtotime($row['waktu'])) ?></td>
                 <td>
                   <button class="btn btn-sm btn-outline-primary" 
                           onclick="cetakCatatan('<?= htmlspecialchars($row['nama_siswa']) ?>',
-                                                 '<?= htmlspecialchars($row['pelanggaran']) ?>',
+                                                 '<?= htmlspecialchars($row['catatan']) ?>',
                                                  '<?= date('d-m-Y H:i:s', strtotime($row['waktu'])) ?>')">
                       <i class="bi bi-printer"></i>
                   </button>

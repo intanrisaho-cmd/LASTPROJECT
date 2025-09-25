@@ -6,7 +6,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 }
 include 'config.php';
 
-$data = ['hari' => '', 'jam' => '', 'guru' => '', 'ruangan' => '', 'topik' => '', 'deskripsi' => ''];
+$data = ['hari' => '', 'jam' => '', 'guru' => '', 'ruangan' => '', 'topik' => ''];
 
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $guru = $_POST['guru'];
     $ruangan = $_POST['ruangan'];
     $topik = $_POST['topik'];
-    $deskripsi = $_POST['deskripsi'];
+    // $deskripsi = $_POST['deskripsi'];
 
-    $stmt = $conn->prepare("UPDATE jadwal_konseling SET hari=?, jam=?, guru=?, ruangan=?, topik=?, deskripsi=? WHERE id=?");
-    $stmt->bind_param("ssssssi", $hari, $jam, $guru, $ruangan, $topik, $deskripsi, $id);
+    $stmt = $conn->prepare("UPDATE jadwal_konseling SET hari=?, jam=?, guru=?, ruangan=?, topik=? WHERE id=?");
+    $stmt->bind_param("sssssi", $hari, $jam, $guru, $ruangan, $topik, $id);
 
     if ($stmt->execute()) {
         $success = "Jadwal berhasil diperbarui!";
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <a href="jadwal-konseling.php"><i class="fas fa-calendar-alt"></i> Jadwal Konseling</a>
     <a href="catatan-admin.php"><i class="fas fa-book"></i> Catatan Guru BK</a>
     <a href="laporan.php"><i class="fas fa-chart-line"></i> Laporan</a>
-    <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Pelanggaran</a>
+    <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Konseling </a>
     <a href="admin_feedback.php"><i class="fas fa-comment-dots"></i> Feedback</a>
     <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
@@ -160,10 +160,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <label class="form-label" for="topik">Topik</label>
                         <input type="text" name="topik" id="topik" class="form-control" value="<?= htmlspecialchars($data['topik']) ?>" required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label class="form-label" for="deskripsi">Deskripsi</label>
                         <textarea name="deskripsi" id="deskripsi" class="form-control" rows="4"><?= htmlspecialchars($data['deskripsi']) ?></textarea>
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-primary btn-block">Simpan Perubahan</button>
                 </form>
             </div>

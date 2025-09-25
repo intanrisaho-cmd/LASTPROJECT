@@ -15,7 +15,7 @@ $siswa = $conn->query("SELECT * FROM siswa ORDER BY nama ASC");
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Pilih Siswa - Lapor Pelanggaran</title>
+    <title>Pilih Siswa - Laporan Konseling</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -98,7 +98,7 @@ $siswa = $conn->query("SELECT * FROM siswa ORDER BY nama ASC");
                     <a class="nav-link" href="wali_dashboard.php">🏠 Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pilih_siswa_lapor.php">📑 Lapor Pelanggaran</a>
+                    <a class="nav-link" href="pilih_siswa_lapor.php">📑 Laporan Konseling</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-warning" href="logout.php">🔓 Logout</a>
@@ -112,7 +112,7 @@ $siswa = $conn->query("SELECT * FROM siswa ORDER BY nama ASC");
 <!-- CONTENT -->
 <div class="container">
     <div class="card mt-4">
-        <h3 class="card-title">Pilih Siswa untuk Lapor Pelanggaran</h3>
+        <h3 class="card-title">Pilih Siswa untuk Laporan Konseling</h3>
         <div class="table-responsive">
             <table class="table table-bordered align-middle table-hover">
                 <thead class="table-light">

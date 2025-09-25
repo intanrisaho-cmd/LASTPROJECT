@@ -25,12 +25,12 @@ if ($notifQuery && $notifQuery->num_rows > 0) {
 // Ambil jadwal umum
 $jadwalUmum = $conn->query("SELECT * FROM jadwal_konseling ORDER BY hari, jam");
 
-// Ambil pengajuan user
+// Ambil pengajuan user → pakai id jadwal agar unik
 $pengajuanSiswa = [];
-$resPengajuan = $conn->query("SELECT DISTINCT guru, jam, status FROM jadwal_konseling WHERE username = '$username'");
+$resPengajuan = $conn->query("SELECT id, status FROM jadwal_konseling WHERE username = '$username'");
 if ($resPengajuan && $resPengajuan->num_rows > 0) {
     while ($row = $resPengajuan->fetch_assoc()) {
-        $pengajuanSiswa[$row['guru']][$row['jam']] = $row['status'];
+        $pengajuanSiswa[$row['id']] = $row['status'];
     }
 }
 ?>
@@ -141,7 +141,6 @@ body {
                     <th>Guru BK</th>
                     <th>Ruangan</th>
                     <th>Topik</th>
-                    <th>Deskripsi</th>
                     <th>Status / Aksi</th>
                 </tr>
             </thead>
@@ -149,9 +148,8 @@ body {
             <?php if ($jadwalUmum && $jadwalUmum->num_rows > 0): ?>
                 <?php while ($row = $jadwalUmum->fetch_assoc()): ?>
                     <?php
-                    $guru = $row['guru'];
-                    $jam = $row['jam'];
-                    $status = $pengajuanSiswa[$guru][$jam] ?? '';
+                    $jadwalId = $row['id'];
+                    $status = $pengajuanSiswa[$jadwalId] ?? '';
                     ?>
                     <tr class="<?= $status === 'Dikonfirmasi' ? 'table-success fw-bold' : '' ?>">
                         <td><?= htmlspecialchars($row['hari']) ?></td>
@@ -159,7 +157,6 @@ body {
                         <td><?= htmlspecialchars($row['guru']) ?></td>
                         <td><?= htmlspecialchars($row['ruangan']) ?></td>
                         <td><?= htmlspecialchars($row['topik']) ?></td>
-                        <td><?= htmlspecialchars($row['deskripsi']) ?></td>
                         <td>
                         <?php if ($status === 'Dikonfirmasi'): ?>
                             <span class="badge bg-success badge-status"><i class="bi bi-check-circle-fill me-1"></i> Dikonfirmasi</span>
@@ -167,7 +164,7 @@ body {
                             <span class="badge bg-warning text-dark badge-status"><i class="bi bi-hourglass-split"></i> Menunggu</span>
                         <?php else: ?>
                             <form method="post" action="jadwal_konseling_process.php" class="d-inline ajukan-form">
-                                <input type="hidden" name="jadwal_id" value="<?= $row['id'] ?>">
+                                <input type="hidden" name="jadwal_id" value="<?= $jadwalId ?>">
                                 <button type="submit" class="btn btn-sm btn-primary">
                                     <i class="bi bi-send-check"></i> Ajukan
                                 </button>

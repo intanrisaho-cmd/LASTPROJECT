@@ -111,7 +111,7 @@ body {
                         <tr>
                             <th>Tanggal</th>
                             <th>Topik</th>
-                            <th>Deskripsi Permasalahan</th>
+                            <!-- <th>Deskripsi Permasalahan</th> -->
                             <th>Status</th>
                             <th>Guru BK</th>
                         </tr>

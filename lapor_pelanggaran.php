@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a class="nav-link" href="wali_dashboard.php">🏠 Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pilih_siswa_lapor.php">📑 Lapor Pelanggaran</a>
+                    <a class="nav-link" href="pilih_siswa_lapor.php">📑 Laporan Konseling</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-warning" href="logout.php">🔓 Logout</a>
@@ -105,15 +105,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- FORM -->
 <div class="container d-flex justify-content-center align-items-start" style="min-height: 100vh; padding-top: 100px;">
   <div class="form-wrapper w-100">
-    <h3 class="mb-4 text-center text-primary">Lapor Pelanggaran</h3>
+    <h3 class="mb-4 text-center text-primary">Laporan konseling</h3>
     <form method="post">
       <div class="mb-4">
         <label class="form-label"><strong>Nama Siswa:</strong></label>
         <input type="text" class="form-control" value="<?= htmlspecialchars($siswa['nama']); ?>" disabled>
       </div>
       <div class="mb-4">
-        <label for="jenis" class="form-label">Jenis Pelanggaran:</label>
-        <textarea name="jenis_pelanggaran" class="form-control" placeholder="Tuliskan pelanggaran secara lengkap..." required></textarea>
+        <label for="jenis" class="form-label">Topik:</label>
+        <textarea name="Topik" class="form-control" placeholder="Tuliskan pelanggaran secara lengkap..." required></textarea>
       </div>
       <div class="text-end">
         <button type="submit" class="btn btn-success btn-lg">

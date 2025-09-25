@@ -104,8 +104,8 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
-          <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li> -->
           <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
           <li class="nav-item ms-lg-3"><a class="btn btn-login fw-semibold" href="login.php">Login</a></li>
         </ul>
@@ -123,7 +123,7 @@ session_start();
   </section>
 
   <!-- Tentang -->
-  <section id="tentang" class="section bg-light text-center">
+  <!-- <section id="tentang" class="section bg-light text-center">
     <div class="container">
       <h2 class="text-dark">Tentang Konseling BK</h2>
       <p class="lead text-muted mx-auto" style="max-width: 800px;">
@@ -132,10 +132,10 @@ session_start();
         kami siap mendampingi siswa menuju kesuksesan dan kesejahteraan.
       </p>
     </div>
-  </section>
+  </section> -->
 
   <!-- Layanan -->
-  <section id="layanan" class="section text-center">
+  <!-- <section id="layanan" class="section text-center">
     <div class="container">
       <h2 class="mb-5">Layanan Kami</h2>
       <div class="row g-4">
@@ -162,7 +162,7 @@ session_start();
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Kontak -->
   <section id="kontak" class="section bg-light text-center">

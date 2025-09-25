@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <a href="jadwal-konseling.php"><i class="fas fa-calendar-alt"></i> Jadwal Konseling</a>
    <a href="catatan-admin.php"><i class="fas fa-book"></i> Catatan Guru BK</a>
   <a href="laporan.php"><i class="fas fa-chart-line"></i> Laporan</a>
-  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Pelanggaran</a>
+  <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Konseling</a>
   <a href="admin_feedback.php"><i class="fas fa-comment-dots"></i> Feedback</a>
   <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>

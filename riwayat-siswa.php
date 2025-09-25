@@ -25,7 +25,7 @@ $result = $query->get_result();
 </head>
 <body>
 <div class="container mt-5">
-  <h2>📋 Riwayat Konseling/Pelanggaran</h2>
+  <h2>📋 Riwayat Konseling</h2>
   <table class="table table-bordered table-striped">
     <thead class="table-light">
       <tr>

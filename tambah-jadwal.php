@@ -23,7 +23,7 @@ if (isset($_POST['simpan'])) {
   $ruangan   = $_POST['ruangan'];
   $tanggal   = $_POST['tanggal'];
   $topik     = $_POST['topik'];
-  $deskripsi = $_POST['deskripsi'];
+  // $deskripsi = $_POST['deskripsi'];
 
   // Pastikan format jam valid dan lengkapi ke HH:MM:SS untuk tipe TIME
   if (preg_match('/^\d{2}:\d{2}$/', $jamInput)) {
@@ -33,14 +33,14 @@ if (isset($_POST['simpan'])) {
   }
 
   $sql = "INSERT INTO jadwal_konseling 
-            (username, hari, jam, guru, ruangan, tanggal, topik, deskripsi)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            (username, hari, jam, guru, ruangan, tanggal, topik)
+          VALUES (?, ?, ?, ?, ?, ?, ?)";
   $stmt = $conn->prepare($sql);
   if (!$stmt) {
     die("Prepare failed: " . $conn->error);
   }
 
-  $stmt->bind_param("ssssssss", $username, $hari, $jam, $guru, $ruangan, $tanggal, $topik, $deskripsi);
+  $stmt->bind_param("sssssss", $username, $hari, $jam, $guru, $ruangan, $tanggal, $topik);
 
   if ($stmt->execute()) {
     echo "<script>
@@ -118,7 +118,7 @@ if (isset($_POST['simpan'])) {
     <a href="jadwal-konseling.php"><i class="fas fa-calendar-alt"></i> Jadwal Konseling</a>
     <a href="catatan-admin.php"><i class="fas fa-book"></i> Catatan Guru BK</a>
     <a href="laporan.php"><i class="fas fa-chart-line"></i> Laporan</a>
-    <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Pelanggaran</a>
+    <a href="notifikasi-admin.php"><i class="fas fa-bell"></i> Catatan Konseling</a>
     <a href="admin_feedback.php"><i class="fas fa-comment-dots"></i> Feedback</a>
     <a href="logout.php" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
   </div>
@@ -163,8 +163,8 @@ if (isset($_POST['simpan'])) {
       <label>Topik Konseling</label>
       <input type="text" name="topik" class="form-control" placeholder="Masukkan topik" required>
 
-      <label>Deskripsi Permasalahan</label>
-      <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan deskripsi" required>
+      <!-- <label>Deskripsi Permasalahan</label>
+      <input type="text" name="deskripsi" class="form-control" placeholder="Masukkan deskripsi" required> -->
 
       <button type="submit" name="simpan" class="btn btn-primary">Simpan Jadwal</button>
     </form>

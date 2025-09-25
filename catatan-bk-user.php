@@ -55,7 +55,7 @@ body { background: #f0f4f8; padding-top: 90px; font-family: 'Segoe UI', sans-ser
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
 <div class="container-fluid px-4">
     <a class="navbar-brand d-flex align-items-center text-success" href="user_dashboard.php">
-      <img src="images/sma.jpg" alt="Logo" width="40" height="40" class="me-2 rounded-circle shadow-sm">
+      <img src="images/sma2.png" alt="Logo" width="40" height="40" class="me-2 rounded-circle shadow-sm">
       <strong>Konseling Siswa</strong>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarUser">
